@@ -1,16 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    {{ encore_entry_link_tags('app') }}
-{% endblock %}
 
 {% block body %}
 
+    <div class="container">
+        <div class="row">
+            {% for article in articles %}
 
-{% endblock %}
+                <div class="col-md-4">
+                    <h6>{{ article.title }}</h6>
+                    {{ article.content | raw }}
 
-{% block javascripts %}
-    {{ parent() }}
-    {{ encore_entry_script_tags('app') }}
+                    {{ article.author }}
+
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+
 {% endblock %}
